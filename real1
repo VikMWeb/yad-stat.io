@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Реалізатор 1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="setRole('real1')">
+
+<div class="container">
+  <h2>Реалізатор 1</h2>
+
+  <button onclick="copyTable()">КОПІЯ</button>
+  <button onclick="window.location='index.html'">ВИЙТИ</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ТОВАР</th>
+        <th>СКЛАД</th>
+        <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Нд</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

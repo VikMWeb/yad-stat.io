@@ -1,6 +1,34 @@
+/* ---------------------- */
+/* БАЗОВІ ЗМІННІ ТЕМИ     */
+/* ---------------------- */
+:root {
+  --bg: #f0f2f5;
+  --text: #000;
+  --table-bg: #fff;
+  --border: #bbb;
+  --button-bg: #42a742;
+  --button-text: #fff;
+  --input-bg: #fff;
+}
+
+body.dark {
+  --bg: #1b1d20;
+  --text: #e5e5e5;
+  --table-bg: #2a2c31;
+  --border: #555;
+  --button-bg: #4caf50;
+  --button-text: #fff;
+  --input-bg: #3a3c42;
+}
+
+/* ---------------------- */
+/* ОСНОВНИЙ СТИЛЬ        */
+/* ---------------------- */
+
 body {
   font-family: Arial, sans-serif;
-  background: #e7ecef;
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
   padding: 0;
 }
@@ -8,10 +36,14 @@ body {
 .container {
   width: 95%;
   margin: 20px auto;
-  background: white;
+  background: var(--table-bg);
   padding: 15px;
   border-radius: 10px;
 }
+
+/* ---------------------- */
+/* ТАБЛИЦІ               */
+/* ---------------------- */
 
 table {
   width: 100%;
@@ -19,7 +51,7 @@ table {
 }
 
 td, th {
-  border: 1px solid #999;
+  border: 1px solid var(--border);
   padding: 8px;
   text-align: center;
 }
@@ -27,18 +59,76 @@ td, th {
 input {
   width: 60px;
   padding: 4px;
+  background: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 button {
   padding: 10px 20px;
-  background: #42a742;
+  background: var(--button-bg);
   border: none;
-  color: white;
+  color: var(--button-text);
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #369636;
+  opacity: 0.9;
+}
+
+/* ---------------------- */
+/* КНОПКИ ПІД ТАБЛИЦЕЮ   */
+/* ---------------------- */
+
+.actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.actions button {
+  margin: 6px;
+  width: 140px;
+}
+
+/* ---------------------- */
+/* ТЕМНИЙ ПЕРЕМИКАЧ      */
+/* ---------------------- */
+
+.theme-toggle {
+  float: right;
+  margin-top: -10px;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px 12px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 6px;
+}
+
+/* ---------------------- */
+/* АДАПТИВНІСТЬ          */
+/* ---------------------- */
+
+@media (max-width: 600px) {
+
+  input {
+    width: 45px;
+  }
+
+  td, th {
+    padding: 5px;
+    font-size: 13px;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+  }
 }

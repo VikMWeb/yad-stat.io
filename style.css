@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* Центрування вхідного блоку */
+/* Вхідний блок */
 .login-box {
     background: #161b22;
     padding: 30px;
@@ -25,18 +25,19 @@ body {
 
 input {
     width: 100%;
-    padding: 12px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 16px;
     border-radius: 6px;
     border: 1px solid #30363d;
     background: #0d1117;
     color: #fff;
+    box-sizing: border-box;
 }
 
 .show-btn {
     position: absolute;
     right: 10px;
-    top: 11px;
+    top: 9px;
     cursor: pointer;
     color: #999;
 }
@@ -49,7 +50,7 @@ button {
     border: none;
     border-radius: 6px;
     margin-top: 15px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -84,26 +85,93 @@ button:hover {
     background: #161b22;
     padding: 20px;
     border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     background: #0d1117;
+    min-width: 700px;
 }
 
 th, td {
     border: 1px solid #30363d;
-    padding: 8px;
+    padding: 6px;
     text-align: center;
 }
 
 th {
     background: #21262d;
+    font-size: 14px;
+}
+
+td input {
+    background: #0d1117;
+    border: none;
+    border-bottom: 1px solid #30363d;
+    font-size: 14px;
+    padding: 4px;
 }
 
 .status {
     text-align: center;
     color: #2ea043;
     display: none;
+    margin-top: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.buttons button {
+    margin-top: 0;
+}
+
+.add-row {
+    margin-top: 20px;
+}
+
+.add-row input {
+    margin-top: 8px;
+}
+
+.add-row button {
+    margin-top: 10px;
+}
+
+/* Мобільна версія */
+@media (max-width: 700px) {
+    .login-box {
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 12px;
+    }
+
+    table {
+        font-size: 12px;
+        min-width: 600px;
+    }
+
+    th, td {
+        padding: 4px;
+    }
 }

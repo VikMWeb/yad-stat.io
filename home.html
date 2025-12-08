@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>YAD-STAT | Головна</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Облік товарів</h2>
+
+    <table id="productsTable">
+        <tr>
+            <th>ТОВАР</th>
+            <th>СКЛАД</th>
+            <th>ПРОДАНО 13 нд.</th>
+            <th>Пн</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+            <th>Нд</th>
+            <th>%</th>
+        </tr>
+
+        <tr>
+            <td>картопля</td>
+            <td>100</td>
+            <td>50</td>
+            <td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td>
+            <td>50</td>
+        </tr>
+
+        <tr>
+            <td>капуста</td>
+            <td>50</td>
+            <td>20</td>
+            <td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td>
+            <td>30</td>
+        </tr>
+
+        <tr>
+            <td>морква</td>
+            <td>70</td>
+            <td>25</td>
+            <td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td>
+            <td>45</td>
+        </tr>
+    </table>
+
+    <button onclick="copyTable()">📋 Скопіювати таблицю</button>
+
+    <p id="copyStatus" class="status">Таблицю скопійовано!</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

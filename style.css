@@ -1,177 +1,44 @@
-/* Загальний фон */
 body {
-    font-family: Arial, sans-serif;
-    background: #0d1117;
-    color: #fff;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background: #e7ecef;
+  margin: 0;
+  padding: 0;
 }
 
-/* Вхідний блок */
-.login-box {
-    background: #161b22;
-    padding: 30px;
-    border-radius: 12px;
-    width: 340px;
-    text-align: center;
-    margin: 120px auto;
-    box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    animation: fadeIn 0.5s ease;
-}
-
-.input-box {
-    position: relative;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: 1px solid #30363d;
-    background: #0d1117;
-    color: #fff;
-    box-sizing: border-box;
-}
-
-.show-btn {
-    position: absolute;
-    right: 10px;
-    top: 9px;
-    cursor: pointer;
-    color: #999;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background: #238636;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    margin-top: 15px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #2ea043;
-}
-
-.error {
-    margin-top: 10px;
-    color: #ff6b6b;
-    display: none;
-    font-weight: bold;
-}
-
-/* Трясіння */
-@keyframes shake {
-    25% { transform: translateX(-6px); }
-    50% { transform: translateX(6px); }
-    75% { transform: translateX(-6px); }
-}
-
-/* Fade-in */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Основна сторінка */
 .container {
-    max-width: 1000px;
-    margin: 40px auto;
-    background: #161b22;
-    padding: 20px;
-    border-radius: 12px;
-    box-sizing: border-box;
-}
-
-.container h2 {
-    text-align: center;
-    margin-top: 0;
-}
-
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
+  width: 95%;
+  margin: 20px auto;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #0d1117;
-    min-width: 700px;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-th, td {
-    border: 1px solid #30363d;
-    padding: 6px;
-    text-align: center;
+td, th {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
 }
 
-th {
-    background: #21262d;
-    font-size: 14px;
+input {
+  width: 60px;
+  padding: 4px;
 }
 
-td input {
-    background: #0d1117;
-    border: none;
-    border-bottom: 1px solid #30363d;
-    font-size: 14px;
-    padding: 4px;
+button {
+  padding: 10px 20px;
+  background: #42a742;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.status {
-    text-align: center;
-    color: #2ea043;
-    display: none;
-    margin-top: 10px;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.buttons button {
-    margin-top: 0;
-}
-
-.add-row {
-    margin-top: 20px;
-}
-
-.add-row input {
-    margin-top: 8px;
-}
-
-.add-row button {
-    margin-top: 10px;
-}
-
-/* Мобільна версія */
-@media (max-width: 700px) {
-    .login-box {
-        width: 90%;
-        margin: 80px auto;
-    }
-
-    .container {
-        margin: 10px;
-        padding: 12px;
-    }
-
-    table {
-        font-size: 12px;
-        min-width: 600px;
-    }
-
-    th, td {
-        padding: 4px;
-    }
+button:hover {
+  background: #369636;
 }

@@ -191,3 +191,19 @@ function setRole(r) {
   role = r;
   loadData(renderTable);
 }
+
+// -------------------------------
+// ТЕМНА ТЕМА
+// -------------------------------
+function toggleTheme() {
+  let dark = document.body.classList.toggle("dark");
+  localStorage.setItem("theme", dark ? "dark" : "light");
+}
+
+// Автоматичне завантаження теми
+window.onload = () => {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+};
+

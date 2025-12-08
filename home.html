@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>YAD-STAT | Головна</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,52 +12,87 @@
 
     <h2>Облік товарів</h2>
 
-    <table id="productsTable">
-        <tr>
-            <th>ТОВАР</th>
-            <th>СКЛАД</th>
-            <th>ПРОДАНО 13 нд.</th>
-            <th>Пн</th>
-            <th>Вт</th>
-            <th>Ср</th>
-            <th>Чт</th>
-            <th>Пт</th>
-            <th>Сб</th>
-            <th>Нд</th>
-            <th>%</th>
-        </tr>
+    <div class="table-wrapper">
+        <table id="productsTable">
+            <thead>
+            <tr>
+                <th>ТОВАР</th>
+                <th>СКЛАД</th>
+                <th>ПРОДАНО 13 нд.</th>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Нд</th>
+                <th>ЗАЛИШОК</th>
+                <th>%</th>
+            </tr>
+            </thead>
+            <tbody id="productsBody">
+            <!-- Початкові дані (якщо ще нічого не збережено в localStorage) -->
+            <tr>
+                <td><input class="name-input" type="text" value="картопля"></td>
+                <td><input class="stock-input" type="number" min="0" value="100"></td>
+                <td><input class="sold-input" type="number" min="0" value="50"></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td class="remaining-cell"></td>
+                <td class="percent-cell"></td>
+            </tr>
 
-        <tr>
-            <td>картопля</td>
-            <td>100</td>
-            <td>50</td>
-            <td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td>
-            <td>50</td>
-        </tr>
+            <tr>
+                <td><input class="name-input" type="text" value="капуста"></td>
+                <td><input class="stock-input" type="number" min="0" value="50"></td>
+                <td><input class="sold-input" type="number" min="0" value="20"></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td class="remaining-cell"></td>
+                <td class="percent-cell"></td>
+            </tr>
 
-        <tr>
-            <td>капуста</td>
-            <td>50</td>
-            <td>20</td>
-            <td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td>
-            <td>30</td>
-        </tr>
+            <tr>
+                <td><input class="name-input" type="text" value="морква"></td>
+                <td><input class="stock-input" type="number" min="0" value="70"></td>
+                <td><input class="sold-input" type="number" min="0" value="25"></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td><input class="sold-input" type="number" min="0" value=""></td>
+                <td class="remaining-cell"></td>
+                <td class="percent-cell"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <tr>
-            <td>морква</td>
-            <td>70</td>
-            <td>25</td>
-            <td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td>
-            <td>45</td>
-        </tr>
-    </table>
-
-    <button onclick="copyTable()">📋 Скопіювати таблицю</button>
+    <div class="buttons">
+        <button onclick="copyTable()">📋 Скопіювати таблицю</button>
+        <button onclick="exportCSV()">⬇ Експорт CSV / Excel</button>
+    </div>
 
     <p id="copyStatus" class="status">Таблицю скопійовано!</p>
+
+    <div class="add-row">
+        <h3>Додати новий товар</h3>
+        <input id="newName" type="text" placeholder="Назва товару">
+        <input id="newStock" type="number" min="0" placeholder="Кількість на складі">
+        <button onclick="addProduct()">➕ Додати</button>
+    </div>
 
 </div>
 

@@ -3,93 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Вхід | YAD-STAT</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0d1117;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .login-box {
-            background: #161b22;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.6);
-            width: 340px;
-            text-align: center;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to   { opacity: 1; transform: scale(1); }
-        }
-
-        h2 {
-            margin-bottom: 20px;
-        }
-
-        .input-box {
-            position: relative;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            font-size: 18px;
-            border-radius: 6px;
-            border: 1px solid #30363d;
-            background: #0d1117;
-            color: #fff;
-        }
-
-        .show-btn {
-            position: absolute;
-            right: 10px;
-            top: 11px;
-            cursor: pointer;
-            color: #999;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 15px;
-            padding: 12px;
-            background: #238636;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        button:hover {
-            background: #2ea043;
-        }
-
-        .error {
-            margin-top: 10px;
-            color: #ff6b6b;
-            font-weight: bold;
-            display: none;
-        }
-
-        /* Анімація трясіння */
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-6px); }
-            50% { transform: translateX(6px); }
-            75% { transform: translateX(-6px); }
-            100% { transform: translateX(0); }
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -111,35 +25,6 @@
     <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
 </audio>
 
-<script>
-    const correctCode = "7739";
-
-    function toggleCode() {
-        const input = document.getElementById("codeInput");
-        input.type = (input.type === "password") ? "text" : "password";
-    }
-
-    function checkCode() {
-        const input = document.getElementById("codeInput").value;
-        const error = document.getElementById("errorMsg");
-        const loginBox = document.getElementById("loginBox");
-        const beep = document.getElementById("beepSound");
-
-        if (input === correctCode) {
-            window.location.href = "https://vikmweb.github.io/yad-stat.io/?k=7739";
-        } else {
-            error.style.display = "block";
-
-            // Звук
-            beep.currentTime = 0;
-            beep.play();
-
-            // Анімація трясіння
-            loginBox.style.animation = "shake 0.4s";
-            setTimeout(() => loginBox.style.animation = "", 400);
-        }
-    }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

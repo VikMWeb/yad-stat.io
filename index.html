@@ -2,27 +2,229 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<title>Вхід</title>
-<link rel="stylesheet" href="style.css">
+<title>Вхід до системи</title>
+
+<style>
+/* ---------------------- */
+/*   ТЕМА (ЗМІННІ)       */
+/* ---------------------- */
+:root {
+    --bg1: linear-gradient(135deg, #4c8bf5, #6cd4ff);
+    --glass-bg: rgba(255,255,255,0.25);
+    --text: #fff;
+    --input-bg: rgba(255,255,255,0.85);
+    --button-bg: #34a853;
+}
+
+body.dark {
+    --bg1: linear-gradient(135deg, #141414, #1f1f1f);
+    --glass-bg: rgba(0,0,0,0.45);
+    --text: #eaeaea;
+    --input-bg: rgba(0,0,0,0.6);
+    --button-bg: #4caf50;
+}
+
+/* ---------------------- */
+/*   СТИЛІ ВХОДУ          */
+/* ---------------------- */
+
+.login-bg {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg1);
+    transition: 0.3s;
+}
+
+.login-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    padding: 40px 50px;
+    border-radius: 18px;
+    text-align: center;
+    width: 360px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 0.6s ease;
+    transition: 0.3s;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* поле */
+.input-wrap {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    background: var(--input-bg);
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+    transition: 0.2s;
+    color: #000;
+}
+
+body.dark input {
+    color: #fff;
+}
+
+input:focus {
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* очко 👁️ */
+.eye-btn {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    color: #333;
+}
+
+body.dark .eye-btn {
+    color: #ddd;
+}
+
+/* кнопка */
+button {
+    width: 100%;
+    padding: 12px;
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+/* помилка */
+.error {
+    margin-top: 10px;
+    color: #ffebee;
+    background: rgba(255,0,0,0.5);
+    padding: 8px;
+    border-radius: 8px;
+    display: none;
+}
+
+/* тема */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 10px;
+    color: #000;
+    cursor: pointer;
+    font-size: 18px;
+    backdrop-filter: blur(5px);
+}
+
+body.dark .theme-toggle {
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+}
+
+/* адаптив */
+@media(max-width: 450px){
+    .login-box {
+        width: 85%;
+        padding: 30px;
+    }
+}
+
+/* анімація */
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to   {opacity:1; transform: translateY(0);}
+}
+</style>
+
 </head>
 
-<body>
+<body class="login-bg">
 
-<div class="container" style="text-align:center;">
-  <h2>Введіть код доступу:</h2>
-  <input id="code" type="password" placeholder="Код">
-  <br><br>
-  <button onclick="login()">Увійти</button>
+<!-- Кнопка теми -->
+<div class="theme-toggle" onclick="toggleTheme()">🌓</div>
+
+<div class="login-box">
+    <h2>Введіть код доступу</h2>
+
+    <div class="input-wrap">
+        <input id="code" type="password" placeholder="Ваш код…" autofocus>
+
+        <!-- ОКО -->
+        <div class="eye-btn" onclick="togglePass()">👁️</div>
+    </div>
+
+    <br>
+
+    <button onclick="login()">Увійти</button>
+
+    <div class="error" id="errorMsg">❌ Невірний код!</div>
 </div>
 
 <script>
+// -------------------------
+// Вхід
+// -------------------------
 function login() {
-  let code = document.getElementById("code").value;
+    let code = document.getElementById("code").value;
 
-  if (code == "1000") window.location = "admin.html";
-  else if (code == "1001") window.location = "real1.html";
-  else if (code == "1002") window.location = "real2.html";
-  else alert("Невірний код!");
+    if (code == "1000") window.location = "admin.html";
+    else if (code == "1001") window.location = "real1.html";
+    else if (code == "1002") window.location = "real2.html";
+    else {
+        let e = document.getElementById("errorMsg");
+        e.style.display = "block";
+        setTimeout(() => e.style.display="none", 2000);
+    }
+}
+
+// -------------------------
+// Enter для входу
+// -------------------------
+document.getElementById("code").addEventListener("keydown", function(e){
+    if (e.key === "Enter") login();
+});
+
+// -------------------------
+// Показати / сховати код
+// -------------------------
+function togglePass() {
+    let input = document.getElementById("code");
+    input.type = input.type === "password" ? "text" : "password";
+}
+
+// -------------------------
+// Темна тема
+// -------------------------
+function toggleTheme() {
+    let dark = document.body.classList.toggle("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+}
+
+// Завантаження теми
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
 }
 </script>
 

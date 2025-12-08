@@ -1,0 +1,109 @@
+/* Загальний фон */
+body {
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Центрування вхідного блоку */
+.login-box {
+    background: #161b22;
+    padding: 30px;
+    border-radius: 12px;
+    width: 340px;
+    text-align: center;
+    margin: 120px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    animation: fadeIn 0.5s ease;
+}
+
+.input-box {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background: #0d1117;
+    color: #fff;
+}
+
+.show-btn {
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    cursor: pointer;
+    color: #999;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #238636;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2ea043;
+}
+
+.error {
+    margin-top: 10px;
+    color: #ff6b6b;
+    display: none;
+    font-weight: bold;
+}
+
+/* Трясіння */
+@keyframes shake {
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+}
+
+/* Fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Основна сторінка */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0d1117;
+}
+
+th, td {
+    border: 1px solid #30363d;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #21262d;
+}
+
+.status {
+    text-align: center;
+    color: #2ea043;
+    display: none;
+}

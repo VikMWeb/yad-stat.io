@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Вхід | YAD-STAT</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Вхід</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="login-box" id="loginBox">
-    <h2>Вхід до YAD-STAT</h2>
-    <p>Введіть код доступу:</p>
-
-    <div class="input-box">
-        <input type="password" id="codeInput" placeholder="Код">
-        <span class="show-btn" onclick="toggleCode()">👁</span>
-    </div>
-
-    <button onclick="checkCode()">Увійти</button>
-
-    <div class="error" id="errorMsg">Невірний код</div>
+<div class="container" style="text-align:center;">
+  <h2>Введіть код доступу:</h2>
+  <input id="code" type="password" placeholder="Код">
+  <br><br>
+  <button onclick="login()">Увійти</button>
 </div>
 
-<audio id="beepSound">
-    <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
-</audio>
+<script>
+function login() {
+  let code = document.getElementById("code").value;
 
-<script src="script.js"></script>
+  if (code == "1000") window.location = "admin.html";
+  else if (code == "1001") window.location = "real1.html";
+  else if (code == "1002") window.location = "real2.html";
+  else alert("Невірний код!");
+}
+</script>
+
 </body>
 </html>
